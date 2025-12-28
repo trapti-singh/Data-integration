@@ -1,4 +1,3 @@
-# Data-integration
 import requests
 
 def get_apollo_leads(api_key):
@@ -15,17 +14,17 @@ def get_apollo_leads(api_key):
     }
     response = requests.post(url, headers=headers, json=data)
     return response.json()['people']
-import requests
+    import requests
 
 # Since your profile is .com, we use the US endpoint
 ACCOUNTS_URL = "https://accounts.zoho.com/oauth/v2/token"
 
 # PASTE YOUR NEW GRANT CODE HERE (it expires in 10 mins!)
-fresh_grant_code = "1000.16907b7c46dc6faf90c05dd4a582cd20.b5d62682bd33407aec40b6898cd7dc04"
+fresh_grant_code = "Your Token"
 
 payload = {
-    "client_id": "1000.3BQA3MUWFSMG0F5VX0KW40QMPK5VGA",
-    "client_secret": "7db4b6029209a644c183da54db3a555b940a3ffaf2",
+    "client_id": "Your client ID",
+    "client_secret": "Your Client secret",
     "grant_type": "authorization_code",
     "redirect_uri": "https://www.google.com",
     "code": fresh_grant_code
@@ -41,15 +40,12 @@ if "refresh_token" in data:
 else:
     print("❌ FAILED")
     print(data)
-import requests
-
-
+    import requests
 
 # 1. Your Credentials
-REFRESH_TOKEN = "1000.00a3a94ca033f4e45826f99f8dddd3e6.3499f29697816d7a30bd582303b37152"
-CLIENT_ID = "1000.3BQA3MUWFSMG0F5VX0KW40QMPK5VGA"
-CLIENT_SECRET = "7db4b6029209a644c183da54db3a555b940a3ffaf2"
-
+REFRESH_TOKEN = "YOUR_ZOHO_REFRESH_TOKEN"
+CLIENT_ID = "YOUR_ZOHO_CLIENT_ID"
+CLIENT_SECRET = "YOUR_ZOHO_CLIENT_SECRET"
 def get_token():
     url = "https://accounts.zoho.com/oauth/v2/token"
     params = {
@@ -68,11 +64,13 @@ if "access_token" in result:
     print(f"Temporary Access Token: {result['access_token'][:10]}...")
 else:
     print("❌ Step 1 Failed. Error:", result)
+
+
 import pandas as pd
 
 # Load the file
 try:
-    df = pd.read_csv("/content/test Leads.csv")
+    df = pd.read_csv("/content/Leads.csv")
     print("✅ Step 1 Success! I found the file.")
     print("Here are the columns in your CSV:")
     print(list(df.columns))
@@ -82,9 +80,10 @@ try:
     print(df.iloc[0].to_dict())
 except Exception as e:
     print(f"❌ Step 1 Failed. Error: {e}")
-import pandas as pd
 
-df = pd.read_csv("/content/test Leads.csv")
+    import pandas as pd
+
+df = pd.read_csv("/content/Leads.csv")
 
 # Create a list of leads in Zoho's format
 zoho_leads = []
@@ -101,14 +100,15 @@ for index, row in df.head(2).iterrows(): # Testing just the first 2 rows
 
 print("✅ Step 2 Success! Here is what we will send to Zoho:")
 print(zoho_leads)
+
 import pandas as pd
 import requests
 import time
 
 # --- 1. YOUR CREDENTIALS ---
-REFRESH_TOKEN = "1000.00a3a94ca033f4e45826f99f8dddd3e6.3499f29697816d7a30bd582303b37152"
-CLIENT_ID = "1000.3BQA3MUWFSMG0F5VX0KW40QMPK5VGA"
-CLIENT_SECRET = "7db4b6029209a644c183da54db3a555b940a3ffaf2"
+REFRESH_TOKEN = "YOUR_ZOHO_REFRESH_TOKEN"
+CLIENT_ID = "YOUR_ZOHO_CLIENT_ID"
+CLIENT_SECRET = "YOUR_ZOHO_CLIENT_SECRET"
 
 # --- 2. TOKEN FUNCTION ---
 def get_access_token():
@@ -126,7 +126,7 @@ def get_access_token():
 def push_in_batches():
     try:
         # Load your file
-        df = pd.read_csv("test Leads.csv")
+        df = pd.read_csv("Leads.csv")
 
         # Format leads
         all_leads = []
@@ -179,3 +179,5 @@ if __name__ == "__main__":
     print("--- SYNC FINISHED ---")
 
 
+
+    
