@@ -1,3 +1,23 @@
+# Apollo to Zoho CRM Lead Automation Pipeline 🚀
+
+#This project automates the migration of lead data from Apollo.io exports directly into Zoho CRM using Python and Zoho's REST API.
+
+## 🛠 Features
+- **OAuth 2.0 Flow**: Implemented automated token refreshing for secure, long-term API access.
+- **Batch Processing**: Designed a "chunking" algorithm to handle large datasets within Zoho's 100-record API limit.
+- **Data Normalization**: Mapped non-standard CSV headers (e.g., 'Contact Email', 'Company Name') to structured CRM fields.
+
+## 📁 Repository Structure
+- `Data_Integration_Pipeline.ipynb`: Development notebook containing API testing and logic exploration.
+- `leads_sample.csv`: Sample data format for testing.
+
+## 🚀 How to Use
+1. Clone the repo.
+2. Install dependencies: `pip install pandas requests`.
+3. Add your `CLIENT_ID`, `CLIENT_SECRET`, and `REFRESH_TOKEN` to the placeholders in the script.
+4. Run the script to sync your `leads.csv` file.
+
+
 import requests
 
 def get_apollo_leads(api_key):
